@@ -1,5 +1,6 @@
 .Home{
     width: 100%;
+    min-height: 700px;
     padding: 20px 20px;
     background-color: rgb(58, 54, 87);
 }
