@@ -16,18 +16,23 @@ const Register = ({ temp }) => {
 
     const onSubmitHandler = async (e) => {
         e.preventDefault()
-        try {
-            const register = await axios.post(`${url}/api/user/register`, { username, password, Cpassword })
-            alert(register.data.message)
-            temp(true)
-            setError("")
-            setPassword("")
-            setUsername("")
-            setCpassword("")
-        } catch (err) {
-            setError(err.response.data.error)
+        if (!username || !password || !Cpassword) {
+            setError("Fill all the details")
+        } else if (password !== Cpassword) {
+            setError("passwords does not match")
+        } else {
+            try {
+                const register = await axios.post(`${url}/api/user/register`, { username, password, Cpassword })
+                alert(register.data.message)
+                temp(true)
+                setError("")
+                setPassword("")
+                setUsername("")
+                setCpassword("")
+            } catch (err) {
+                setError(err.response.data.error)
+            }
         }
-        console.log({ username, password, Cpassword })
     }
     return (
         <div className="login">

@@ -15,16 +15,20 @@ const Login = ({ temp }) => {
 
     const onSubmitHandler = async (e) => {
         e.preventDefault()
-        try {
-            const login = await axios.post(`${url}/api/user/login`, { username, password })
-            alert(login.data.message)
-            localStorage.setItem("token", JSON.stringify(login.data.token))
-            navigate('/home')
-            setError("")
-            setPassword("")
-            setUsername("")
-        } catch (err) {
-            setError(err.response.data.error)
+        if (!username || !password) {
+            setError("Fill all the details")
+        } else {
+            try {
+                const login = await axios.post(`${url}/api/user/login`, { username, password })
+                alert(login.data.message)
+                localStorage.setItem("token", JSON.stringify(login.data.token))
+                navigate('/home')
+                setError("")
+                setPassword("")
+                setUsername("")
+            } catch (err) {
+                setError(err.response.data.error)
+            }
         }
     }
     return (
@@ -43,10 +47,10 @@ const Login = ({ temp }) => {
                         }}
                         value={password}
                     />
-                    {!show && <VisibilityIcon style={{fontSize:"20px"}} className='visible_icon' onClick={() => {
+                    {!show && <VisibilityIcon style={{ fontSize: "20px" }} className='visible_icon' onClick={() => {
                         setShow(!show)
                     }} ></VisibilityIcon>}
-                    {show && <VisibilityOffIcon style={{fontSize:"20px"}} className='visible_icon'
+                    {show && <VisibilityOffIcon style={{ fontSize: "20px" }} className='visible_icon'
                         onClick={() => {
                             setShow(!show)
                         }}

@@ -18,25 +18,32 @@ const Create = () => {
     const [update, setUpdate] = useState(false)
     const navigate = useNavigate()
     const { id } = useParams()
-    // console.log(id)
 
     const onSubmitHandler = async (e) => {
         e.preventDefault()
-        if (update) {
-            const data = { title, isbn, author, describe, date, publisher, userId: uid }
-            const update = await axios.put(`${url}/api/book/update/${id}`,data)
-            alert(update.data.message)
-            navigate('/home')
+        if (!title || !isbn || !author || !describe || !date || !publisher) {
+            setError("Fill all the details")
         } else {
-            try {
+
+            if (update) {
                 const data = { title, isbn, author, describe, date, publisher, userId: uid }
-                const create = await axios.post(`${url}/api/book/create`, data)
-                alert(create.data.message)
+                const update = await axios.put(`${url}/api/book/update/${id}`, data)
+                alert(update.data.message)
                 navigate('/home')
-            } catch (err) {
-                setError(err.respone.data.error)
+                setError("")
+            } else {
+                try {
+                    const data = { title, isbn, author, describe, date, publisher, userId: uid }
+                    const create = await axios.post(`${url}/api/book/create`, data)
+                    alert(create.data.message)
+                    navigate('/home')
+                    setError("")
+                } catch (err) {
+                    setError(err.respone.data.error)
+                }
             }
         }
+
     }
 
     useEffect(() => {
@@ -45,6 +52,7 @@ const Create = () => {
             const id = await axios.get(`${url}/api/book/getid`, {
                 params: { token: token }
             })
+            // console.log(id.data.id)
             setUId(id.data.id)
         }
         getId()

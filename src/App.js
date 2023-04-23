@@ -13,7 +13,7 @@ function App() {
     
       <Routes>
         <Route path='/' element={<Auth/>}/>
-        <Route path='/create/:uid' element={<StrictRoute Child={Create}/>}/>
+        <Route path='/create/:id' element={<StrictRoute Child={Create}/>}/>
         <Route path='/home' element={<StrictRoute Child={Home}/>}/>
         <Route path='/show/:id' element={<StrictRoute Child={Show}/>}/>
       </Routes>
