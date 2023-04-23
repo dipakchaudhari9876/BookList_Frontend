@@ -1,0 +1,30 @@
+.display{
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.display img{
+    width: 100%;
+    height: 250px;
+}
+
+.display_btm{
+    padding: 5px;
+    
+}
+.display_btm h4{
+    color: rgb(0, 183, 255);
+
+}
+.display_btm h5{
+    margin-top: 5px;
+    color: white;
+
+}
+.display_btm p{
+    color: white;
+    margin-top: 10px;
+
+}

@@ -1,0 +1,29 @@
+.Home{
+    width: 100%;
+    height: 100vh;
+    padding: 20px 20px;
+    background-color: rgb(58, 54, 87);
+}
+
+.Home h1{
+    color: white;
+    text-align: center;
+}
+
+.home_btn{
+    text-align: end;
+}
+.home_btn button{
+    border: none;
+    outline: none;
+    padding: 7px 10px;
+    background-color: yellow;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cont{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
