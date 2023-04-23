@@ -49,16 +49,16 @@ form button{
 }
 
 .path{
-    font-size: 10px;
+    font-size: 11px;
 }
 .path span{
-    font-size: 10px;
+    font-size: 11px;
     color: rgb(55, 155, 242);
     cursor: pointer;
 }
 
 .forgot{
-    font-size: 10px;
+    font-size: 11px;
     color: rgb(55, 155, 242);
     cursor: pointer;
 }

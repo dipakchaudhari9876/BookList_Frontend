@@ -30,7 +30,7 @@ const Home = () => {
             <h1>Book List</h1>
             <div className="home_btn">
                 <button onClick={()=>{
-                    navigate(`/create`)
+                    navigate(`/create/${'hello'}`)
                 }}>+ Add New Book</button>
             </div>
             {data && <div className="cont">

@@ -22,7 +22,7 @@ const Show = () => {
   }
 
   const onClickEdit = () => {
-    navigate('/create')
+    navigate(`/create/${id}`)
   }
   useEffect(() => {
     const getData = async () => {
