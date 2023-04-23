@@ -20,6 +20,14 @@
 
 .pass{
     width: 100%;
+    position: relative;
+}
+
+.visible_icon{
+    color: rgb(95, 92, 92);
+    position: absolute;
+    top: 14px;
+    right: 10px;
 }
 
 form p{

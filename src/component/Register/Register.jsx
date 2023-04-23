@@ -26,7 +26,7 @@ const Register = ({ temp }) => {
     }
     return (
         <div className="login">
-            <h1>LOGIN</h1>
+            <h1>Register</h1>
             <form onSubmit={onSubmitHandler}>
                 <input className='input' type="text" placeholder='USERNAME' onChange={(e) => {
                     setUsername(e.target.value)
