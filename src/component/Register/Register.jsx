@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import './register.css'
 import axios from 'axios'
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const url = process.env.REACT_APP_API
+
 
 const Register = ({ temp }) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [Cpassword, setCpassword] = useState("")
     const [error, setError] = useState("")
+    const [show, setShow] = useState(false)
+    const [cshow, setCShow] = useState(false)
 
     const onSubmitHandler = async (e) => {
         e.preventDefault()
@@ -34,20 +39,36 @@ const Register = ({ temp }) => {
                     value={username}
                 />
                 <div className="pass">
-                    <input className='input' type="password" placeholder='PASSWORD'
+                    <input className='input' type={!show ? "password" : "text"} placeholder='PASSWORD'
                         onChange={(e) => {
                             setPassword(e.target.value)
                         }}
                         value={password}
                     />
+                    {!show && <VisibilityIcon style={{ fontSize: "20px" }} className='visible_icon' onClick={() => {
+                        setShow(!show)
+                    }} ></VisibilityIcon>}
+                    {show && <VisibilityOffIcon style={{ fontSize: "20px" }} className='visible_icon'
+                        onClick={() => {
+                            setShow(!show)
+                        }}
+                    ></VisibilityOffIcon>}
                 </div>
                 <div className="pass">
-                    <input className='input' type="password" placeholder='CONFIRM PASSWORD'
+                    <input className='input' type={!cshow ? "password" : "text"} placeholder='CONFIRM PASSWORD'
                         onChange={(e) => {
                             setCpassword(e.target.value)
                         }}
                         value={Cpassword}
                     />
+                    {!cshow && <VisibilityIcon style={{ fontSize: "20px" }} className='visible_icon' onClick={() => {
+                        setCShow(!cshow)
+                    }} ></VisibilityIcon>}
+                    {cshow && <VisibilityOffIcon style={{ fontSize: "20px" }} className='visible_icon'
+                        onClick={() => {
+                            setCShow(!cshow)
+                        }}
+                    ></VisibilityOffIcon>}
                 </div>
                 {error && <p>{error}</p>}
                 <button type="submit">REGISTER</button>
